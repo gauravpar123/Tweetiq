@@ -1576,12 +1576,15 @@
     }
 
     #shareCard {
-      background: #080808;
-      border: 1px solid rgba(255, 255, 255, .08);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, .6)
-    }
+  width: 1200px;
+  height: 450px;
+
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .6);
+}
 
     .scstripe {
       height: 2px;
@@ -1590,9 +1593,10 @@
     }
 
     .scinner {
-      display: grid;
-      grid-template-columns: 185px 1fr
-    }
+  display: grid;
+  grid-template-columns: 185px 1fr;
+  height: 100%;
+}
 
     .scleft {
       padding: 20px 16px;
@@ -2489,7 +2493,7 @@
 
           <!-- CARD -->
           <div id="shareCard"
-            style="width:100%;max-width:1200px;aspect-ratio:1200/630;background:#0a0a0a;border-radius:16px;overflow:hidden;font-family:'Bricolage Grotesque',sans-serif;position:relative;box-sizing:border-box;padding:40px 48px;">
+            style="width:100%;max-width:1200px;aspect-ratio:1200/450;background:#0a0a0a;border-radius:16px;overflow:hidden;font-family:'Bricolage Grotesque',sans-serif;position:relative;box-sizing:border-box;padding:40px 48px;">
             <!-- Header row: avatar+name left, IQ score right -->
             <div style="display:flex;justify-content:space-between;align-items:center;">
               <div style="display:flex;align-items:center;gap:20px;">
@@ -2837,7 +2841,7 @@
 
       // Update insights
       if (insights?.keyInsights && Array.isArray(insights.keyInsights)) {
-        document.getElementById('inslist').innerHTML = insights.keyInsights.slice(0, 3).map(ins => `
+        document.getElementById('inslist').innerHTML = insights.keyInsights.slice(0, 2).map(ins => `
           <div class="insr ${ins.type === 'opportunity' ? 'warn' : ''}">
             <div class="insbar"></div>
             <div>
@@ -3157,13 +3161,11 @@
 
       container.innerHTML = `
         <div class="donwrap">
-          <svg width="110" height="110" viewBox="0 0 110 110" style="flex-shrink:0">
+          <svg width="200" height="150" viewBox="0 0 110 110" style="flex-shrink:0">
             <circle cx="55" cy="55" r="42" fill="none" stroke="#222" stroke-width="14" />
             ${svgCircles}
-            <text x="55" y="51" text-anchor="middle" fill="white" font-size="14" font-weight="800"
-              font-family="Bricolage Grotesque,sans-serif">${Math.round((topItem.percentage / total) * 100)}%</text>
-            <text x="55" y="63" text-anchor="middle" fill="#737373" font-size="8"
-              font-family="JetBrains Mono,monospace">${topItem.label}</text>
+             <text x="55" y="60" text-anchor="middle" fill="white" font-size="14" font-weight="800"
+              font-family="Bricolage Grotesque,sans-serif">${Math.round((topItem.percentage / total) * 100)}%</text> */ 
           </svg>
           <div class="dleg">
             ${legendHtml}
