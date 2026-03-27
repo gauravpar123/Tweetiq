@@ -10,7 +10,12 @@ app.set('trust proxy', 1); // 👈 ADD THIS
 const PORT = process.env.PORT || 3001;
 
 // Security middleware
-app.use(helmet());
+// app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false
+  })
+);
 app.use(cors({
   origin: '*', // Allow all origins during development
   credentials: true,
