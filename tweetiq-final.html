@@ -2489,72 +2489,61 @@
 
           <!-- CARD -->
           <div id="shareCard"
-            style="width:100%;max-width:1200px;aspect-ratio:1200/630;background:#0a0a0a;border-radius:16px;overflow:hidden;font-family:'Bricolage Grotesque',sans-serif;position:relative;">
-            <div style="height:3px;background:#f97316;"></div>
-            <div style="position:absolute;bottom:16px;right:24px;font-size:13px;font-weight:700;color:#444;font-family:'JetBrains Mono',monospace;letter-spacing:1px;">✦ TweetIQ</div>
-            <div style="height:calc(100% - 3px);padding:48px;display:flex;gap:36px;box-sizing:border-box;">
-              <div
-                style="width:fit-content;min-width:200px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;">
-                <div style="display:flex;flex-direction:column;align-items:center;">
-                  <div id="scAv"
-                    style="width:120px;height:120px;border-radius:50%;border:3px solid #f97316;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:800;color:#fff;overflow:hidden;flex-shrink:0;">
-                    EL</div>
-                  <div id="scN" style="margin-top:16px;font-size:24px;font-weight:800;line-height:1.15;color:#fff;">Elon
-                    Musk</div>
-                  <div id="scH"
-                    style="margin-top:6px;font-size:14px;font-weight:600;color:#f97316;font-family:'JetBrains Mono',monospace;">
-                    @elonmusk</div>
-                </div>
-                <div style="margin-top:24px;">
-                  <div
-                    style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#777;font-family:'JetBrains Mono',monospace;">
-                    IQ Score</div>
-                  <div id="scScore" style="margin-top:4px;font-size:72px;font-weight:800;line-height:1;color:#fff;">94
-                  </div>
+            style="width:100%;max-width:1200px;aspect-ratio:1200/630;background:#0a0a0a;border-radius:16px;overflow:hidden;font-family:'Bricolage Grotesque',sans-serif;position:relative;box-sizing:border-box;padding:40px 48px;">
+            <!-- Header row: avatar+name left, IQ score right -->
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div style="display:flex;align-items:center;gap:20px;">
+                <div id="scAv"
+                  style="width:80px;height:80px;border-radius:50%;border:3px solid #f97316;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#fff;overflow:hidden;flex-shrink:0;">
+                  EL</div>
+                <div>
+                  <div id="scN" style="font-size:28px;font-weight:800;line-height:1.2;color:#fff;">Elon Musk</div>
+                  <div id="scH" style="margin-top:4px;font-size:15px;font-weight:600;color:#f97316;font-family:'JetBrains Mono',monospace;">@elonmusk</div>
                 </div>
               </div>
-              <div
-                style="flex:1;padding-left:36px;border-left:1px solid #242424;display:flex;flex-direction:column;justify-content:center;gap:20px;box-sizing:border-box;">
-                <div style="display:flex;align-items:center;gap:16px;">
-                  <span style="width:120px;flex-shrink:0;font-size:15px;color:#999;">Viral Hook</span>
-                  <div style="flex:1;height:12px;background:#1c1c1c;border-radius:6px;overflow:hidden;">
-                    <div id="scBarViral" style="width:84%;height:100%;background:#f97316;"></div>
-                  </div>
-                  <span id="scValViral"
-                    style="width:34px;text-align:right;font-size:20px;font-weight:700;color:#fff;">84</span>
+              <div style="text-align:right;">
+                <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#777;font-family:'JetBrains Mono',monospace;">IQ Score</div>
+                <div id="scScore" style="font-size:80px;font-weight:800;line-height:1;color:#fff;">94</div>
+              </div>
+            </div>
+            <!-- Divider -->
+            <div style="height:1px;background:#333;margin:28px 0 32px;"></div>
+            <!-- DNA bars full width -->
+            <div style="display:flex;flex-direction:column;gap:20px;">
+              <div style="display:flex;align-items:center;gap:20px;">
+                <span style="width:130px;flex-shrink:0;font-size:16px;font-weight:600;color:#ccc;font-family:'JetBrains Mono',monospace;">Viral Hook</span>
+                <div style="flex:1;height:16px;background:#2a2a2a;border-radius:8px;overflow:hidden;">
+                  <div id="scBarViral" style="width:84%;height:100%;background:#f97316;border-radius:8px;"></div>
                 </div>
-                <div style="display:flex;align-items:center;gap:16px;">
-                  <span style="width:120px;flex-shrink:0;font-size:15px;color:#999;">Opinion</span>
-                  <div style="flex:1;height:12px;background:#1c1c1c;border-radius:6px;overflow:hidden;">
-                    <div id="scBarOpinion" style="width:91%;height:100%;background:#f97316;"></div>
-                  </div>
-                  <span id="scValOpinion"
-                    style="width:34px;text-align:right;font-size:20px;font-weight:700;color:#fff;">91</span>
+                <span id="scValViral" style="width:40px;text-align:right;font-size:22px;font-weight:800;color:#fff;">84</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:20px;">
+                <span style="width:130px;flex-shrink:0;font-size:16px;font-weight:600;color:#ccc;font-family:'JetBrains Mono',monospace;">Opinion</span>
+                <div style="flex:1;height:16px;background:#2a2a2a;border-radius:8px;overflow:hidden;">
+                  <div id="scBarOpinion" style="width:91%;height:100%;background:#f97316;border-radius:8px;"></div>
                 </div>
-                <div style="display:flex;align-items:center;gap:16px;">
-                  <span style="width:120px;flex-shrink:0;font-size:15px;color:#999;">Humor</span>
-                  <div style="flex:1;height:12px;background:#1c1c1c;border-radius:6px;overflow:hidden;">
-                    <div id="scBarHumor" style="width:72%;height:100%;background:#f97316;"></div>
-                  </div>
-                  <span id="scValHumor"
-                    style="width:34px;text-align:right;font-size:20px;font-weight:700;color:#fff;">72</span>
+                <span id="scValOpinion" style="width:40px;text-align:right;font-size:22px;font-weight:800;color:#fff;">91</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:20px;">
+                <span style="width:130px;flex-shrink:0;font-size:16px;font-weight:600;color:#ccc;font-family:'JetBrains Mono',monospace;">Humor</span>
+                <div style="flex:1;height:16px;background:#2a2a2a;border-radius:8px;overflow:hidden;">
+                  <div id="scBarHumor" style="width:72%;height:100%;background:#f97316;border-radius:8px;"></div>
                 </div>
-                <div style="display:flex;align-items:center;gap:16px;">
-                  <span style="width:120px;flex-shrink:0;font-size:15px;color:#999;">Depth</span>
-                  <div style="flex:1;height:12px;background:#1c1c1c;border-radius:6px;overflow:hidden;">
-                    <div id="scBarDepth" style="width:58%;height:100%;background:#f97316;"></div>
-                  </div>
-                  <span id="scValDepth"
-                    style="width:34px;text-align:right;font-size:20px;font-weight:700;color:#fff;">58</span>
+                <span id="scValHumor" style="width:40px;text-align:right;font-size:22px;font-weight:800;color:#fff;">72</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:20px;">
+                <span style="width:130px;flex-shrink:0;font-size:16px;font-weight:600;color:#ccc;font-family:'JetBrains Mono',monospace;">Depth</span>
+                <div style="flex:1;height:16px;background:#2a2a2a;border-radius:8px;overflow:hidden;">
+                  <div id="scBarDepth" style="width:58%;height:100%;background:#f97316;border-radius:8px;"></div>
                 </div>
-                <div style="display:flex;align-items:center;gap:16px;">
-                  <span style="width:120px;flex-shrink:0;font-size:15px;color:#999;">Storytelling</span>
-                  <div style="flex:1;height:12px;background:#1c1c1c;border-radius:6px;overflow:hidden;">
-                    <div id="scBarStorytelling" style="width:44%;height:100%;background:#f97316;"></div>
-                  </div>
-                  <span id="scValStorytelling"
-                    style="width:34px;text-align:right;font-size:20px;font-weight:700;color:#fff;">44</span>
+                <span id="scValDepth" style="width:40px;text-align:right;font-size:22px;font-weight:800;color:#fff;">58</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:20px;">
+                <span style="width:130px;flex-shrink:0;font-size:16px;font-weight:600;color:#ccc;font-family:'JetBrains Mono',monospace;">Storytelling</span>
+                <div style="flex:1;height:16px;background:#2a2a2a;border-radius:8px;overflow:hidden;">
+                  <div id="scBarStorytelling" style="width:44%;height:100%;background:#f97316;border-radius:8px;"></div>
                 </div>
+                <span id="scValStorytelling" style="width:40px;text-align:right;font-size:22px;font-weight:800;color:#fff;">44</span>
               </div>
             </div>
           </div>
