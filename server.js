@@ -6,6 +6,7 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const app = express();
+app.set('trust proxy', 1); // 👈 ADD THIS
 const PORT = process.env.PORT || 3001;
 
 // Security middleware
