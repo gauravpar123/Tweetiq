@@ -3164,8 +3164,9 @@
           <svg width="200" height="150" viewBox="0 0 110 110" style="flex-shrink:0">
             <circle cx="55" cy="55" r="42" fill="none" stroke="#222" stroke-width="14" />
             ${svgCircles}
-             <text x="55" y="60" text-anchor="middle" fill="white" font-size="14" font-weight="800"
-              font-family="Bricolage Grotesque,sans-serif">${Math.round((topItem.percentage / total) * 100)}%</text> */ 
+            <text x="55" y="60" text-anchor="middle" fill="white" font-size="14" font-weight="800"
+              font-family="Bricolage Grotesque,sans-serif">${Math.round((topItem.percentage / total) * 100)}%</text>
+            
           </svg>
           <div class="dleg">
             ${legendHtml}
@@ -3202,11 +3203,11 @@ Top niche: ${insights.growthNiches?.[0]?.niche || 'Content Creation'}
       const card = document.getElementById('shareCard');
       const originalStyle = card.style.cssText;
 
-      // Set fixed dimensions for consistent export
+      // Set fixed dimensions for consistent export (matching the card's natural aspect ratio)
       card.style.width = '1200px';
       card.style.maxWidth = '1200px';
-      card.style.height = '630px';
-      card.style.aspectRatio = 'auto';
+      card.style.height = '450px';
+      card.style.aspectRatio = '1200/450';
 
       await new Promise(r => setTimeout(r, 100));
 
@@ -3217,7 +3218,7 @@ Top niche: ${insights.growthNiches?.[0]?.niche || 'Content Creation'}
         allowTaint: true,
         logging: false,
         width: 1200,
-        height: 630
+        height: 450
       });
 
       // Restore original style

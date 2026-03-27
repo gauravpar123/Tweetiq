@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+// const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -35,6 +36,11 @@ const cardRoutes = require('./routes/card');
 // Routes
 app.use('/api/analyze', analyzeRoutes);
 app.use('/card', cardRoutes);
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'tweetiq-final.html'));
+});
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

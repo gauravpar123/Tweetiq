@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TweetIQ Main Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Main Card Styles */
+    .tweetiq-card {
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 1200/450;
+      background: #0a0a0a;
+      border-radius: 16px;
+      overflow: hidden;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      position: relative;
+      box-sizing: border-box;
+      padding: 40px 48px;
+      margin: 0 auto;
+    }
+
+    /* Header Section */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .profile-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #f97316;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-name {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .profile-handle {
+      margin-top: 4px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #f97316;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .score-section {
+      text-align: right;
+    }
+
+    .score-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .score-value {
+      font-size: 80px;
+      font-weight: 800;
+      line-height: 1;
+      color: #fff;
+    }
+
+    /* Divider */
+    .card-divider {
+      height: 1px;
+      background: #333;
+      margin: 28px 0 32px;
+    }
+
+    /* DNA Bars Section */
+    .dna-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .dna-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .dna-label {
+      width: 130px;
+      flex-shrink: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ccc;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .dna-progress {
+      flex: 1;
+      height: 16px;
+      background: #2a2a2a;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .dna-fill {
+      height: 100%;
+      background: #f97316;
+      border-radius: 8px;
+      transition: width 0.3s ease;
+    }
+
+    .dna-value {
+      width: 40px;
+      text-align: right;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .tweetiq-card {
+        padding: 30px 24px;
+        aspect-ratio: 1;
+      }
+
+      .card-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .profile-section {
+        flex-direction: column;
+      }
+
+      .score-section {
+        text-align: center;
+      }
+
+      .dna-bar-row {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .dna-label {
+        width: auto;
+      }
+
+      .dna-value {
+        width: auto;
+        text-align: left;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .progress-animate {
+      animation: progressGrow 1s ease-out;
+    }
+
+    @keyframes progressGrow {
+      from { width: 0 !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Main TweetIQ Card -->
+  <div class="tweetiq-card fade-in">
+    <!-- Header row: avatar+name left, IQ score right -->
+    <div class="card-header">
+      <div class="profile-section">
+        <div class="avatar" id="cardAvatar">
+          <!-- Avatar content will be dynamically inserted -->
+        </div>
+        <div class="profile-info">
+          <div class="profile-name" id="cardName">Your Name</div>
+          <div class="profile-handle" id="cardHandle">@yourhandle</div>
+        </div>
+      </div>
+      <div class="score-section">
+        <div class="score-label">IQ Score</div>
+        <div class="score-value" id="cardScore">78</div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="card-divider"></div>
+
+    <!-- DNA bars full width -->
+    <div class="dna-bars">
+      <div class="dna-bar-row">
+        <span class="dna-label">Viral Hook</span>
+        <div class="dna-progress">
+          <div class="dna-fill progress-animate" id="viralBar" style="width: 84%;"></div>
+        </div>
+        <span class="dna-value" id="viralValue">84</span>
+      </div>
+      <div class="dna-bar-row">
+        <span class="dna-label">Opinion</span>
+        <div class="dna-progress">
+          <div class="dna-fill progress-animate" id="opinionBar" style="width: 91%;"></div>
+        </div>
+        <span class="dna-value" id="opinionValue">91</span>
+      </div>
+      <div class="dna-bar-row">
+        <span class="dna-label">Humor</span>
+        <div class="dna-progress">
+          <div class="dna-fill progress-animate" id="humorBar" style="width: 72%;"></div>
+        </div>
+        <span class="dna-value" id="humorValue">72</span>
+      </div>
+      <div class="dna-bar-row">
+        <span class="dna-label">Depth</span>
+        <div class="dna-progress">
+          <div class="dna-fill progress-animate" id="depthBar" style="width: 58%;"></div>
+        </div>
+        <span class="dna-value" id="depthValue">58</span>
+      </div>
+      <div class="dna-bar-row">
+        <span class="dna-label">Storytelling</span>
+        <div class="dna-progress">
+          <div class="dna-fill progress-animate" id="storytellingBar" style="width: 44%;"></div>
+        </div>
+        <span class="dna-value" id="storytellingValue">44</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to update card with data
+    function updateCard(data) {
+      // Update profile info
+      document.getElementById('cardName').textContent = data.name || 'Your Name';
+      document.getElementById('cardHandle').textContent = '@' + (data.username || 'yourhandle');
+      document.getElementById('cardScore').textContent = data.score || '78';
+
+      // Update avatar
+      const avatar = document.getElementById('cardAvatar');
+      if (data.profileImageUrl) {
+        avatar.innerHTML = `<img src="${data.profileImageUrl}" alt="Profile">`;
+      } else {
+        avatar.textContent = (data.name || 'YO').slice(0, 2).toUpperCase();
+      }
+
+      // Update DNA bars
+      const dnaTraits = ['viral', 'opinion', 'humor', 'depth', 'storytelling'];
+      dnaTraits.forEach(trait => {
+        const value = data[trait] || 0;
+        const bar = document.getElementById(`${trait}Bar`);
+        const valueEl = document.getElementById(`${trait}Value`);
+        
+        if (bar) bar.style.width = `${value}%`;
+        if (valueEl) valueEl.textContent = value;
+      });
+    }
+
+    // Example usage:
+    // updateCard({
+    //   name: 'John Doe',
+    //   username: 'johndoe',
+    //   score: 85,
+    //   profileImageUrl: 'https://example.com/avatar.jpg',
+    //   viral: 84,
+    //   opinion: 91,
+    //   humor: 72,
+    //   depth: 58,
+    //   storytelling: 44
+    // });
+
+    // Auto-update on load if data is passed
+    window.addEventListener('load', () => {
+      // You can add initialization logic here
+      console.log('TweetIQ Card loaded');
+    });
+  </script>
+</body>
+</html>
